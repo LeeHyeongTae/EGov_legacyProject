@@ -29,8 +29,9 @@
 								<div class="v-input__slot">
 									<div class="v-text-field__slot">
 										<label for="nameText" class="v-label theme--light"
-											style="left: 0px; right: auto; position: absolute;">Name</label><input
-											name="name" id="nameText" type="text">
+											style="left: 0px; right: auto; position: absolute;">Name</label>
+											<input
+											name="name" id="join_nameText" type="text">
 									</div>
 								</div>
 								<div class="v-text-field__details">
@@ -52,8 +53,9 @@
 								<div class="v-input__slot">
 									<div class="v-text-field__slot">
 										<label for="emailText" class="v-label theme--light"
-											style="left: 0px; right: auto; position: absolute;">E-mail</label><input
-											name="email" id="emailText" type="text">
+											style="left: 0px; right: auto; position: absolute;">E-mail</label>
+											<input
+											name="email" id="join_emailText" type="text">
 									</div>
 								</div>
 								<div class="v-text-field__details">
@@ -75,8 +77,9 @@
 								<div class="v-input__slot">
 									<div class="v-text-field__slot">
 										<label for="passwordText" class="v-label theme--light"
-											style="left: 0px; right: auto; position: absolute;">Password</label><input
-											name="password" id="passwordText" type="password">
+											style="left: 0px; right: auto; position: absolute;">Password</label>
+											<input
+											name="password" id="join_passwordText" type="password">
 									</div>
 								</div>
 								<div class="v-text-field__details">
@@ -92,7 +95,8 @@
 								<div class="v-input__slot">
 									<div class="v-input--selection-controls__input">
 										<i aria-hidden="true"
-											class="v-icon notranslate mdi mdi-checkbox-blank-outline theme--light"></i><input
+											class="v-icon notranslate mdi mdi-checkbox-blank-outline theme--light"></i>
+											<input
 											aria-checked="false" id="input-104" role="checkbox"
 											type="checkbox" required="required" value="">
 										<div class="v-input--selection-controls__ripple"></div>
@@ -109,9 +113,9 @@
 					</form>
 				</div>
 				<div class="v-card__actions">
-					<button type="button"
+					<button type="button" id="joinForm_submit_btn"
 						class="mr-4 v-btn v-btn--contained theme--light v-size--default light-green">
-						<span id="joinForm_submit_btn" class="v-btn__content">submit</span>
+						<span class="v-btn__content">submit</span>
 					</button>
 					<button type="button"
 						class="v-btn v-btn--contained theme--light v-size--default amber">
@@ -136,24 +140,31 @@ $('#joinForm_login_btn').click(function(e){
 	e.preventDefault()
 	location.href = "${context}/members/login/form"
 })
-$('#joinForm_submit_btn').click(function(e){
+/* document.getElementById('joinForm_submit_btn').addEventListener('click', function(e){
 	e.preventDefault()
-	console.log()
+	member.init()
+	member.join({"userid": documentById('join_nameText').value,})
+}) */
+$('#joinForm_submit_btn').click(function(e){
+	console.log('submit btn click')
+	e.preventDefault()
 	$.ajax({
-		url:`${ctx}/members/users`,
-		type:'POST',
+		url: '${context}/person/users',
+		type: 'post',
 		data: JSON.stringify({
-			name: $('#nameText').value,
-			email: $('#emailText').value,
-			password: $('#passwordText').value
-		}),	
+			seq: '10',
+			name: 'name',
+			email: 'email',
+			password: 'passwd'
+		}),
 		dataType:'json',
-		contentType:'application/json; charset-UTF-8',
-		success: function(res){
+		contentType:'application/json',
+		success:function(res){
 			console.log(res)
+			location.href = "${context}/members/login/form"
 		},
-		error: function(err){
-			console.log(err)
+		error:function(req, status, err){
+			console.log(req.status)
 		}
 	})
 })

@@ -18,8 +18,15 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a id="join_btn"><span class="glyphicon glyphicon-log-in"></span> Join</a></li>
       </ul>
     </div>
   </div>
 </nav>
+<script>
+document.getElementById('join_btn').addEventListener('click',function(e){
+	e.preventDefault()
+	location.href ="${context}/members/tamplateJoin"
+})
+</script>

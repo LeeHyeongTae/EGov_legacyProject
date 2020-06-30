@@ -16,13 +16,11 @@
 	</div>	
 </div>
 </body>
-<script type="text/javascript" src="/js/chunk-vendors.js"/></script>
-<script type="text/javascript" src="/js/app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 <script>
     new Vue({
-      el: '#app',
+      /* el: '#app', */
       vuetify: new Vuetify(),
     })
 </script>
