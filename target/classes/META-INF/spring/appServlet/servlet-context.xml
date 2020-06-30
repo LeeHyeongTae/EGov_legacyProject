@@ -30,7 +30,8 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model 우선순위가 없으면 위에서 밑으로 커서가 읽는다. -->
 	
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<!-- 자바스크립트의 객체를 읽는다. -->
+	<mvc:resources mapping="/resources/**" location="/resources/" /> 
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="contentNegotiationManager" ref="contentNegotiationManager"/>
 		<property name="viewResolvers">

@@ -111,7 +111,7 @@
 				<div class="v-card__actions">
 					<button type="button"
 						class="mr-4 v-btn v-btn--contained theme--light v-size--default light-green">
-						<span class="v-btn__content">submit</span>
+						<span id="joinForm_submit_btn" class="v-btn__content">submit</span>
 					</button>
 					<button type="button"
 						class="v-btn v-btn--contained theme--light v-size--default amber">
@@ -135,5 +135,26 @@
 $('#joinForm_login_btn').click(function(e){
 	e.preventDefault()
 	location.href = "${context}/members/login/form"
+})
+$('#joinForm_submit_btn').click(function(e){
+	e.preventDefault()
+	console.log()
+	$.ajax({
+		url:`${ctx}/members/users`,
+		type:'POST',
+		data: JSON.stringify({
+			name: $('#nameText').value,
+			email: $('#emailText').value,
+			password: $('#passwordText').value
+		}),	
+		dataType:'json',
+		contentType:'application/json; charset-UTF-8',
+		success: function(res){
+			console.log(res)
+		},
+		error: function(err){
+			console.log(err)
+		}
+	})
 })
 </script>
