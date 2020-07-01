@@ -1,4 +1,4 @@
-package domains;
+package com.bitcamp.web.domains;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
@@ -7,12 +7,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data 
-@Lazy 
-@AllArgsConstructor 
+@Data @Component
+@Lazy
+@AllArgsConstructor
 @NoArgsConstructor
-@Component
-public class ImageDTO {
-	private int imageSeq;
-	private String image;
+public class MemberDTO {
+//	private int seq;
+	private String name, email, password;
 }

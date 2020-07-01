@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bitcamp.web.domains.MemberDTO;
 import com.bitcamp.web.enums.Messanger;
-
-import domains.MemberDTO;
-import mappers.MemberMapper;
+import com.bitcamp.web.mappers.MemberMapper;
 
 @RestController
 @RequestMapping("/person")

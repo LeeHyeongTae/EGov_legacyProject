@@ -1,4 +1,4 @@
-package domains;
+package com.bitcamp.web.domains;
 /**
  * @FileName : ArticleDTO.java
  * @Project : 게시판

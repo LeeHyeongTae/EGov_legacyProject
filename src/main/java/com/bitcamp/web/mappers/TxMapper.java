@@ -1,9 +1,9 @@
-package mappers;
+package com.bitcamp.web.mappers;
 
 import org.apache.ibatis.annotations.Insert;
 import org.springframework.stereotype.Repository;
 
-import domains.MemberDTO;
+import com.bitcamp.web.domains.MemberDTO;
 
 @Repository
 public interface TxMapper {
