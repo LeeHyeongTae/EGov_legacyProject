@@ -3,9 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.bitcamp.web.mappers.MemberMapper">
-  <!--   <select id="list" resultType="domains.MemberDTO">
-        select
-            bicycleSeq, title, image, year, price, manufacturer, kind
-        from member
-    </select>  -->
+   <select id="truncateMember" parameterType="hashmap">
+   		${TRUNCATE_MEMBERS}
+   </select>
+   <select id="createDB" parameterType="hashmap">
+   		${CREATE_DB}
+   </select>
 </mapper>

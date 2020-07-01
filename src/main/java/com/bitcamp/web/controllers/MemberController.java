@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bitcamp.web.HomeController;
+import com.bitcamp.web.enums.Messanger;
 
 import domains.MemberDTO;
-import enums.Messanger;
 import services.MemberService;
 
 @Controller

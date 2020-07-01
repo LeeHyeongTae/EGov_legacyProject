@@ -24,10 +24,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class HomeController {
     @Autowired HttpSession session;
     @Autowired HttpServletRequest request;
-//    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
     
     @GetMapping("/")
     public String home(HttpSession session, HttpServletRequest request) {
+    	logger.info("homeController 작동.");
     	session.setAttribute("context",	request.getContextPath());
     	session.setAttribute("javascript",	request.getContextPath()+"/resources/js");
         return "main/Home.tiles";
@@ -36,7 +37,7 @@ public class HomeController {
     @GetMapping("/location/{dir}/{page}")
     public String move(@PathVariable("dir") String dir,
     					@PathVariable("page") String page) {
-    	return String.format("%s/%s.jsp", dir, page);
+    	return String.format("%s/%s.jsp", dir, page);	
     }
         
 }

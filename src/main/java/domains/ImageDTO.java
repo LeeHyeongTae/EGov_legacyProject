@@ -7,11 +7,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data @Component
-@Lazy
-@AllArgsConstructor
+@Data 
+@Lazy 
+@AllArgsConstructor 
 @NoArgsConstructor
-public class MemberDTO {
-	private int seq;
-	private String name, email, password;
+@Component
+public class ImageDTO {
+	private int imageSeq;
+	private String image;
 }
