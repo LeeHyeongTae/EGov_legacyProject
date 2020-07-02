@@ -72,7 +72,7 @@
 					</button>
 					<button type="button"
 						class="v-btn v-btn--contained theme--light v-size--default primary">
-						<span class="v-btn__content">Login</span>
+						<span id="loginForm_login_btn" class="v-btn__content">Login</span>
 					</button>
 					<button type="button"
 						class="v-btn v-btn--contained theme--light v-size--default gray">
@@ -84,8 +84,23 @@
 	</div>
 </div>
 <script>
-$('#loginForm_join_btn').click(function(e){
-	e.preventDefault()
-	location.href = "${context}/members/join/form"
-})
+	$('#loginForm_join_btn').click(function(e) {
+		e.preventDefault()
+		location.href = "${context}/members/join/form"
+	})
+	document
+			.getElementById('loginForm_login_btn')
+			.addEventListener(
+					'click',
+					function(e) {
+						e.preventDefault()
+						member.init()
+						member
+								.login({
+									"email" : document
+											.getElementById('joinEmailText').value,
+									"password" : document
+											.getElementById('joinPasswordText').value
+								})
+					})
 </script>

@@ -104,25 +104,8 @@
 								data-v-2e47a50a="" class="v-list-item__title">board</div></a>
 					</div>
 				</div>
-				<div data-v-2e47a50a="" tabindex="0"
-					class="v-list-item v-list-item--link theme--light">
-					<div data-v-2e47a50a="" class="v-list-item__action">
-						<i data-v-2e47a50a="" aria-hidden="true"
-							class="v-icon notranslate mdi mdi-contact-mail theme--light"></i>
-					</div>
-					<div data-v-2e47a50a="" class="v-list-item__content">
-						<a data-v-2e47a50a="" id="navi_tamplate_btn" class=""><div
-								data-v-2e47a50a="" class="v-list-item__title">tamplate</div></a>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
 	<div class="v-navigation-drawer__border"></div>
 </nav>
-<script>
-$('#navi_tamplate_btn').click(function(e){
-	e.preventDefault()
-	location.href = "${context}/members/tamplate"
-})
-</script>

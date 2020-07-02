@@ -63,7 +63,7 @@ public class UserProxy extends Proxy{
 //	}
 	
 	public MemberDTO makeMember() {
-		return new MemberDTO(makeMemberName(), makeMemberEmail(), "1");
+		return new MemberDTO(makeMemberName(), makeMemberEmail(), "1", "admin");
 	}
 	@Transactional //AOP 중 반복에 해당한다.
 	public void insertUsers(int count) {

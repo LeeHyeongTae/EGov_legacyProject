@@ -7,18 +7,27 @@ import org.springframework.stereotype.Service;
 
 import com.bitcamp.web.domains.MemberDTO;
 import com.bitcamp.web.mappers.MemberMapper;
+import com.bitcamp.web.mappers.TxMapper;
 import com.bitcamp.web.services.MemberService;
 
 @Service
 public class MemberServiceImpl implements MemberService{
-
+	@Autowired MemberMapper memberMapper;
+	@Autowired TxMapper txMapper;
 	/* (non-Javadoc)
 	 * @see services.MemberService#save()
 	 */
 	@Override
-	public void save() {
-		// TODO Auto-generated method stub
-		
+	public boolean save(MemberDTO param) {
+		boolean res = false;
+		try {
+			txMapper.insertMember(param);
+//			memberMapper.insertOneIntoMembers(param);
+			res = true;
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+		return res;
 	}
 
 	/* (non-Javadoc)
@@ -70,9 +79,8 @@ public class MemberServiceImpl implements MemberService{
 	 * @see services.MemberService#findByEmailAndName(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public void findByEmailAndName(String email, String name) {
-		// TODO Auto-generated method stub
-		
+	public MemberDTO findByEmailAndPassword(MemberDTO param) {
+		return memberMapper.selectOneFromMembers(param);
 	}
 
 	/* (non-Javadoc)

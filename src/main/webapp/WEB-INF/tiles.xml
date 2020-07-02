@@ -7,20 +7,11 @@
 		<put-attribute name="content" value=""/>
 		<put-attribute name="footer" value="/WEB-INF/views/common/Footer.jsp"/>
 	</definition>
-	<definition name="*/*.tiles" extends="public">
+	<definition name="*/*.tiles" extends="public"> 
 		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
-	</definition>
+	</definition>	
 	<!-- notiles -->
 	<definition name="noTiles" extends="public">
 		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
-	</definition>
-	<definition name="tamplate" template="/WEB-INF/views/layouts/Tamplate.jsp">
-		<put-attribute name="tamphead" value="/WEB-INF/views/common/TamplateHead.jsp"/>
-		<put-attribute name="tampnavigator" value="/WEB-INF/views/common/TamplateNavi.jsp"/>
-		<put-attribute name="tampcontent" value=""/>
-		<put-attribute name="tampfooter" value="/WEB-INF/views/common/TamplateFooter.jsp"/>
-	</definition>
-	<definition name="*/*.members" extends="tamplate">
-		<put-attribute name="tampcontent" value="/WEB-INF/views/{1}/{2}.jsp"/>
 	</definition>
 </tiles-definitions>

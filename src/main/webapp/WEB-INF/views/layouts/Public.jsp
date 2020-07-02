@@ -25,10 +25,6 @@
     })
 </script>
 <script>
-$('#login_btn').click(function(e){
-	e.preventDefault()
-	location.href = "${context}/members/login/form"
-})
 $('#joinForm_cancel').click(function(e){
 	e.preventDefault()
 	location.href = "${context}/"

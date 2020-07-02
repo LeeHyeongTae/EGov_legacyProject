@@ -44,7 +44,10 @@ public class MemberController {
 	public String tamplateJoin() {
 		return "account/TamplateJoin.members";
 	}
-	
+	@GetMapping("/tamplateLogin")
+	public String tamplateLogin() {
+		return "account/TamplateLogin.members";
+	}
 //	@GetMapping("/{email}")
 //	public Messanger login(@PathVariable String email) {
 //		logger.info("userid :"+ email);

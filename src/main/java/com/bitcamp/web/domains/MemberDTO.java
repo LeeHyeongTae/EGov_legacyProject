@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MemberDTO {
 //	private int seq;
-	private String name, email, password;
+	private String name, email, password, accessCode;
 }

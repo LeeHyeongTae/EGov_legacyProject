@@ -16,3 +16,6 @@
 	</div>
 </div>
 </main>
+<script>
+app.init("${context}")
+</script>

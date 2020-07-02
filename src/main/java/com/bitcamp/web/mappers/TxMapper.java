@@ -7,6 +7,6 @@ import com.bitcamp.web.domains.MemberDTO;
 
 @Repository
 public interface TxMapper {
-	@Insert("insert into members () values #{name}, #{email}, #{password}")
+	@Insert("insert into members (email, name, password, accessCode) values (#{name}, #{email}, #{password}, #{accessCode})")
 	public void insertMember(MemberDTO member);
 }

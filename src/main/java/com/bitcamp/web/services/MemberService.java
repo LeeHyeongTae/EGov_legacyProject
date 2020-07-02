@@ -4,10 +4,12 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
+import com.bitcamp.web.domains.MemberDTO;
+
 @Component
 public interface MemberService {
 
-	public void save();
+	public boolean save(MemberDTO member);
 
 	public void update();
 
@@ -19,7 +21,7 @@ public interface MemberService {
 
 	public void delete();
 
-	public void findByEmailAndName(String email, String name);
+	public MemberDTO findByEmailAndPassword(MemberDTO member);
 
 	public void findByEmailOrName(String email, String name);
 

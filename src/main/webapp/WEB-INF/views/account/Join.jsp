@@ -30,8 +30,7 @@
 									<div class="v-text-field__slot">
 										<label for="nameText" class="v-label theme--light"
 											style="left: 0px; right: auto; position: absolute;">Name</label>
-											<input
-											name="name" id="join_nameText" type="text">
+										<input name="name" id="joinNameText" type="text">
 									</div>
 								</div>
 								<div class="v-text-field__details">
@@ -54,8 +53,7 @@
 									<div class="v-text-field__slot">
 										<label for="emailText" class="v-label theme--light"
 											style="left: 0px; right: auto; position: absolute;">E-mail</label>
-											<input
-											name="email" id="join_emailText" type="text">
+										<input name="email" id="joinEmailText" type="text">
 									</div>
 								</div>
 								<div class="v-text-field__details">
@@ -78,8 +76,7 @@
 									<div class="v-text-field__slot">
 										<label for="passwordText" class="v-label theme--light"
 											style="left: 0px; right: auto; position: absolute;">Password</label>
-											<input
-											name="password" id="join_passwordText" type="password">
+										<input name="password" id="joinPasswordText" type="password">
 									</div>
 								</div>
 								<div class="v-text-field__details">
@@ -96,14 +93,13 @@
 									<div class="v-input--selection-controls__input">
 										<i aria-hidden="true"
 											class="v-icon notranslate mdi mdi-checkbox-blank-outline theme--light"></i>
-											<input
-											aria-checked="false" id="input-104" role="checkbox"
-											type="checkbox" required="required" value="">
+										<input aria-checked="false" id="input-104" role="checkbox"
+											type="checkbox" required="required" value=false>
 										<div class="v-input--selection-controls__ripple"></div>
 									</div>
 									<label for="input-104" class="v-label theme--light"
 										style="left: 0px; right: auto; position: relative;">Do
-										you agree?</label>
+										you admin?</label>
 								</div>
 								<div class="v-messages theme--light">
 									<div class="v-messages__wrapper"></div>
@@ -135,37 +131,33 @@
 		</div>
 	</div>
 </div>
+<script src="${javascript}/store/member.js"></script>
 <script>
-$('#joinForm_login_btn').click(function(e){
-	e.preventDefault()
-	location.href = "${context}/members/login/form"
-})
-/* document.getElementById('joinForm_submit_btn').addEventListener('click', function(e){
-	e.preventDefault()
-	member.init()
-	member.join({"userid": documentById('join_nameText').value,})
-}) */
-$('#joinForm_submit_btn').click(function(e){
-	console.log('submit btn click')
-	e.preventDefault()
-	$.ajax({
-		url: '${context}/person/users',
-		type: 'post',
-		data: JSON.stringify({
-			seq: '10',
-			name: 'name',
-			email: 'email',
-			password: 'passwd'
-		}),
-		dataType:'json',
-		contentType:'application/json',
-		success:function(res){
-			console.log(res)
-			location.href = "${context}/members/login/form"
-		},
-		error:function(req, status, err){
-			console.log(req.status)
-		}
+	$('#joinForm_login_btn').click(function(e) {
+		e.preventDefault()
+		location.href = "${context}/members/login/form"
 	})
-})
+	document.getElementById('input-104').addEventListener('click', function(e){
+		e.preventDefault()
+		document.getElementById('input-104').value = true
+	})
+	document
+			.getElementById('joinForm_submit_btn')
+			.addEventListener(
+					'click',
+					function(e) {
+						e.preventDefault()
+						colsole.log((document.getElementById('input-104').value)? admin:user)
+						/* member.init()
+						member
+								.join({
+									"email" : document
+											.getElementById('joinEmailText').value,
+									"name" : document
+											.getElementById('joinNameText').value,
+									"password" : document
+											.getElementById('joinPasswordText').value,
+									"accessCode" : (document.getElementById('input-104').value)? admin:user
+								}) */
+					})
 </script>

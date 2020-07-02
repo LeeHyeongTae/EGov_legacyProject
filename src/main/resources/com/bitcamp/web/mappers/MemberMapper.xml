@@ -9,4 +9,13 @@
    <select id="createDB" parameterType="hashmap">
    		${CREATE_DB}
    </select>
+   <select id="selectOneFromMembers" 
+   resultType="com.bitcamp.web.domains.MemberDTO" 
+   parameterType="com.bitcamp.web.domains.MemberDTO">
+   	select name, accessCode
+   	from members where email like #{email} and password like #{password}
+   </select>
+   <insert id="insertOneIntoMembers" parameterType="com.bitcamp.web.domains.MemberDTO">
+   	insert into members (email, name, password, accessCode) values(#{email}, #{name}, #{password}, #{accessCode})
+   </insert>
 </mapper>
