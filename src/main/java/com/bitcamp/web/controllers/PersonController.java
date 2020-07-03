@@ -1,10 +1,6 @@
 package com.bitcamp.web.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +22,6 @@ import com.bitcamp.web.services.MemberService;
 @SessionAttributes({"session"})
 public class PersonController {
 	@Autowired MemberService memberService;
-	@Autowired Model model;
 	private static final Logger logger = LoggerFactory.getLogger(PersonController.class);
 	
 
@@ -43,8 +38,7 @@ public class PersonController {
 		return returnMember;
 	}
 	@GetMapping("/users")
-	public void list(){
-		List<MemberDTO> l = new ArrayList<>();
+	public void list(Model model){
 		model.addAttribute("members", memberService.findAll());
 	}
 }
