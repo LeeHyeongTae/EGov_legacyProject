@@ -83,6 +83,7 @@
 		</div>
 	</div>
 </div>
+<script src="${javascript}/store/member.js"></script>
 <script>
 	$('#loginForm_join_btn').click(function(e) {
 		e.preventDefault()
@@ -95,12 +96,9 @@
 					function(e) {
 						e.preventDefault()
 						member.init()
-						member
-								.login({
-									"email" : document
-											.getElementById('joinEmailText').value,
-									"password" : document
-											.getElementById('joinPasswordText').value
+						member.login({
+									"email" : document.getElementById('loginEmailText').value,
+									"password" : document.getElementById('loginPassword').value
 								})
 					})
 </script>

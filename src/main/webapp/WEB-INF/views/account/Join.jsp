@@ -93,8 +93,7 @@
 									<div class="v-input--selection-controls__input">
 										<i aria-hidden="true"
 											class="v-icon notranslate mdi mdi-checkbox-blank-outline theme--light"></i>
-										<input aria-checked="false" id="input-104" role="checkbox"
-											type="checkbox" required="required" value=false>
+										<input name="admin" id="adminText" type="text">
 										<div class="v-input--selection-controls__ripple"></div>
 									</div>
 									<label for="input-104" class="v-label theme--light"
@@ -137,18 +136,18 @@
 		e.preventDefault()
 		location.href = "${context}/members/login/form"
 	})
-	document.getElementById('input-104').addEventListener('click', function(e){
+	/* document.getElementById('input-104').addEventListener('click', function(e){
 		e.preventDefault()
 		document.getElementById('input-104').value = true
-	})
+	}) */
 	document
 			.getElementById('joinForm_submit_btn')
 			.addEventListener(
 					'click',
 					function(e) {
 						e.preventDefault()
-						colsole.log((document.getElementById('input-104').value)? admin:user)
-						/* member.init()
+					/* 	colsole.log((document.getElementById('input-104').value)? admin:user) */
+						member.init()
 						member
 								.join({
 									"email" : document
@@ -157,7 +156,7 @@
 											.getElementById('joinNameText').value,
 									"password" : document
 											.getElementById('joinPasswordText').value,
-									"accessCode" : (document.getElementById('input-104').value)? admin:user
-								}) */
+									"accessCode" : document.getElementById('admin').value
+								})
 					})
 </script>

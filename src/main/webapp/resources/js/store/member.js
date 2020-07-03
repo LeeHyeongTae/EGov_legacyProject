@@ -39,6 +39,7 @@ member = (function(){
 			contentType: 'application/json; charset=UTF-8',
 			success: function(res){
 				console.log(res)
+				location.href = _+`/members/`
 			},
 			error: function(err){
 				console.log(err)
