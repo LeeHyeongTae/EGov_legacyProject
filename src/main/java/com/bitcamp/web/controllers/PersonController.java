@@ -1,15 +1,21 @@
 package com.bitcamp.web.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.bitcamp.web.domains.MemberDTO;
 import com.bitcamp.web.enums.Messanger;
@@ -17,9 +23,10 @@ import com.bitcamp.web.services.MemberService;
 
 @RestController
 @RequestMapping("/person")
+@SessionAttributes({"session"})
 public class PersonController {
 	@Autowired MemberService memberService;
-	
+	@Autowired Model model;
 	private static final Logger logger = LoggerFactory.getLogger(PersonController.class);
 	
 
@@ -34,5 +41,10 @@ public class PersonController {
 		MemberDTO returnMember = memberService.findByEmailAndPassword(member);
 		session.setAttribute("session", returnMember);
 		return returnMember;
+	}
+	@GetMapping("/users")
+	public void list(){
+		List<MemberDTO> l = new ArrayList<>();
+		model.addAttribute("members", memberService.findAll());
 	}
 }

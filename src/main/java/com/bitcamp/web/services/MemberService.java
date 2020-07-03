@@ -1,6 +1,7 @@
 package com.bitcamp.web.services;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,7 @@ public interface MemberService {
 
 	public void findOne();
 
-	public void findAll();
+	public List<MemberDTO> findAll();
 
 	public void count();
 

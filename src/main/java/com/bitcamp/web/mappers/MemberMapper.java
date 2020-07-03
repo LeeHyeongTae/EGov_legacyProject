@@ -1,6 +1,7 @@
 package com.bitcamp.web.mappers;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
@@ -12,4 +13,8 @@ public interface MemberMapper {
 	public MemberDTO selectOneFromMembers(MemberDTO member);
 	public void truncateMember(HashMap<String, String> hashMap);
 	public void dropMember(HashMap<String, String> hashMap);
+	/**
+	 * @return
+	 */
+	public List<MemberDTO> selectAll();
 }

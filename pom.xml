@@ -10,7 +10,7 @@
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.8</java-version>
-		<spring-version>5.2.7.RELEASE</spring-version>
+		<spring-version>4.3.0.RELEASE</spring-version>
 		<aspectj-version>1.6.10</aspectj-version>
 		<slf4j-version>1.6.6</slf4j-version>
 		<lombok-version>1.16.10</lombok-version>
@@ -21,7 +21,7 @@
 		<commons-el-version>1.0</commons-el-version>
 		<commons-fileupload-version>1.3.3</commons-fileupload-version>
 		<commons-io-version>2.6</commons-io-version>
-		<jackson-version>2.11.1</jackson-version>
+		<jackson-version>2.9.3</jackson-version>
 		<jaxb-impl-version>2.1</jaxb-impl-version>
 		<jackson-mapper-asl-version>1.9.13</jackson-mapper-asl-version>
 		<json-lib-version>2.4</json-lib-version>
@@ -29,10 +29,14 @@
 		<jsoup-version>1.11.2</jsoup-version>
 		<dbcp-version>1.4</dbcp-version>
 		<spring-jdbc-version>2.0.6</spring-jdbc-version>
-		<mariadb-java-version>2.6.1</mariadb-java-version>
 		<mockito-version>1.10.19</mockito-version>
 		<hamcrest-version>1.3</hamcrest-version>
+		<mariadb-version>2.6.1</mariadb-version>
 		<servlet-version>3.1.0</servlet-version>
+		<easymock-version>2.4</easymock-version>
+		<dbunit-version>2.4.3</dbunit-version>
+		<unitils-version>2.2</unitils-version>
+		
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -58,7 +62,6 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>${aspectj-version}</version>
 		</dependency>
-
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -101,21 +104,19 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
-
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
-
 		<!-- Servlet -->
 		<dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet-version}</version>
-            <scope>provided</scope>
-        </dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet-version}</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -198,11 +199,6 @@
 			<version>${jackson-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.9.13</version>
-		</dependency>
-		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
 			<version>${json-lib-version}</version>
@@ -214,9 +210,9 @@
 			<version>${jsoup-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.mariadb.jdbc</groupId>
-			<artifactId>mariadb-java-client</artifactId>
-			<version>${mariadb-java-version}</version>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson-mapper-asl-version}</version>
 		</dependency>
 		<!-- Test -->
 		<dependency>
@@ -247,6 +243,30 @@
 			<version>${mockito-version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>${easymock-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymockclassextension</artifactId>
+            <version>${easymock-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>${dbunit-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils</artifactId>
+            <version>${unitils-version}</version>
+            <scope>test</scope>
+        </dependency>
 		<!-- Root -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -284,8 +304,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql-version}</version>
 		</dependency>
-
-
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>${mariadb-version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -308,8 +331,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>1.6</source>
+					<target>1.6</target>
 					<compilerArgument>-Xlint:all</compilerArgument>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
